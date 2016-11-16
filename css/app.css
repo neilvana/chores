@@ -1,0 +1,59 @@
+/* app css stylesheet */
+li.standout {
+
+iframe.full-size {
+   width : 100%;
+}
+
+
+ul.pagination {
+   -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+   -ms-user-select: none;
+   user-select: none;
+}
+
+button {
+   -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+   -ms-user-select: none;
+   user-select: none;   
+}
+
+
+.popover {
+   max-width:500px;
+}
+
+.popover pre {
+   white-space: pre-wrap;
+   white-space: -moz-pre-wrap;
+}
+
+.modal {
+  display: block;
+}
+
+.modal-body:before,
+  .modal-body:after {
+    display: table;
+    content: " ";
+}
+
+.modal-header:before,
+.modal-header:after {
+  display: table;
+  content: " ";
+}

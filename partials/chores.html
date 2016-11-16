@@ -1,0 +1,41 @@
+<div class="page-header">
+   <h1> {{kid | names:mainModel.kids}}'s Chores <small>{{date | date : 'fullDate'}}</small></h1>
+</div>
+<div class="row">
+   <button class="btn btn-default" ng-click="utility.decrementDate()"><span class="glyphicon glyphicon-arrow-left"></span></button>
+   <button class="btn btn-default" ng-click="utility.jumpToToday()">Today</button>
+   <button ng-hide="utility.isToday()" class="btn btn-default" ng-click="utility.incrementDate()"><span class="glyphicon glyphicon-arrow-right"></span></button>
+   <button ng-show="utility.isToday()" class="btn btn-default" disabled><span class="glyphicon glyphicon-arrow-right"></span></button>
+</div>
+<div class="row">
+   <div class="col-xs-6">
+      <h3> Available Chores </h3>
+      <table class="table table-striped">
+         <tr>
+            <th>Chore</th>
+            <th>Points</th>
+            <th>Mark Done</th>
+         </tr>
+         <tr ng-repeat="chore in chores.available">
+            <td><span class="glyphicon glyphicon-star" ng-show="chore.type=='daily-required'"></span>{{chore.name}}</td>
+            <td><h4 class="text-primary">{{chore.points}}</h4></td>
+            <td><button class="btn btn-success" ng-click="utility.markDone(chore._id.$oid)">Mark Done</button></td>
+         </tr>
+      </table>
+   </div>
+   <div class="col-xs-6">
+      <h3> Completed Chores - <span class="text-primary">{{chores.total}} Points</span></h3>
+       <table class="table table-striped">
+         <tr>
+            <th>Chore</th>
+            <th>Points</th>
+            <th>Undo</th>
+         </tr>
+         <tr ng-repeat="chore in chores.completed">
+            <td>{{chore.name}}</td>
+            <td><h4 class="text-primary">{{chore.points}}</h4></td>
+            <td><button class="btn btn-danger" ng-click="utility.markUndone(chore._id.$oid)"><span class="glyphicon glyphicon-remove"></span>Undo</button></td>
+         </tr>
+      </table>
+   </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="modal-dialog">
+   <div class="modal-content">
+      <div class="modal-header">
+         <h4 class="modal-title" id="loginModalLabel">Chore</h4>
+      </div>
+      <div class="modal-body">
+         <form class="form" role="form">
+            <div class="form-group">
+               <label class="sr-only" for="inputName">Name</label>
+               <input ng-model="chore.name" type="text" class="form-control" id="inputName" placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+               <label for="inputType">Type</label>
+               <select ng-model="chore.type" class="form-control" id="inputType">
+                  <option value="one-time" selected>One Time</option>
+                  <option value="daily">Daily</option>
+                  <option value="daily-required">Daily Required</option>
+                  <option value="weekly">Weekly</option>
+               </select>
+            </div>
+            <div class="form-group">
+               <label> Assigned </label>
+               <label ng-repeat="kid in kids" class="checkbox-inline">
+                  <input 
+                     ng-checked="chore.assigned.indexOf(kid.label) > -1"
+                     ng-click="toggleAssigned(kid.label)"
+                     type="checkbox"
+                     value="{{kid.label}}">{{kid.name}}
+               </label>
+            </div>
+            <div class="form-group">
+               <label class="sr-only" for="inputPoints">Points</label>
+               <input ng-model="chore.points" type="number" min="0" max="1000" class="form-control" id="inputPoints" placeholder="Enter Points">
+            </div>
+            <div class="form-group">
+               <label class="checkbox">
+                  <input ng-model="chore.sundays" type="checkbox">Sundays Included
+               </label>
+               <label class="checkbox">
+                  <input ng-model="chore.independent" type="checkbox">Independent Chore
+               </label>
+            </div>
+         </form>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-default" ng-click="ok()">OK</button>
+         <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+      </div>
+   </div>
+</div>
+
